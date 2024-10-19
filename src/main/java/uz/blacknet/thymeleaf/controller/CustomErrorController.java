@@ -20,6 +20,7 @@ public class CustomErrorController implements ErrorController
             return "error/404"; // Return the 404.html template
         }
         model.addAttribute("code", statusCode);
+        model.addAttribute("message", request.getParameter("message"));
 
         return "error/error"; // You can create a generic error.html page as well
     }
