@@ -23,7 +23,9 @@ public class APIKeyFilter extends OncePerRequestFilter
     {
         String key = request.getHeader("API-Key");
 //        logger.info("API-Key:" + key);
-        if (apiKey.equals(key))
+        if (request.getMethod().equalsIgnoreCase("GET"))
+            filterChain.doFilter(request, response);
+        else if (apiKey.equals(key))
             doFilter(request, response, filterChain);
         else if (request.getRequestURI().equals("/api/bot"))
             filterChain.doFilter(request, response);
