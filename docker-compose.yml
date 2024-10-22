@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    image: thymeleaf-img:latest
+    container_name: thymeleaf-cont
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/thymeleaf
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=-098
+    ports:
+      - "1984:1984"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: thymeleaf
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: -098
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
