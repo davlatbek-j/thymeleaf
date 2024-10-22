@@ -12,7 +12,7 @@ services:
       - "1984:1984"
     volumes:
       - ./src/main/resources/photo-uploads:/photo-uploads
-    restart: unless-stopped
+    restart: always
     depends_on:
       - db
 
