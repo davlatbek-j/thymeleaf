@@ -23,7 +23,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 @Service
@@ -134,13 +133,16 @@ public class PhotoService
 
     private void saveToFile(MultipartFile file, Photo photo) throws IOException
     {
-        String originalFileName = photo.getId() + "-" + Objects.requireNonNull(file.getOriginalFilename()).replaceAll(" ", "%20");
+        String name = photo.getId() + "-" +
+                                  (file.getOriginalFilename() == null ? "" : file.getOriginalFilename())
+                                          .replaceAll(" ", "-")
+                                          .replaceAll("/", "-");
 
-        Path filePath = Paths.get(photoUploadPath + File.separator + originalFileName);
+        Path filePath = Paths.get(photoUploadPath + File.separator + name);
 
         file.transferTo(filePath);
 
-        photo.setName(originalFileName);
+        photo.setName(name);
         photo.setPath(filePath.toFile().getAbsolutePath());
         photo.setType(file.getContentType());
         photo.setUrl(baseUrl + "/api/photo/" + photo.getName());
