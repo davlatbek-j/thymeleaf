@@ -11,7 +11,7 @@ services:
     ports:
       - "1984:1984"
     volumes:
-      - $(pwd)/src/main/resources/photo-uploads:/photo-uploads
+      - ./src/main/resources/photo-uploads:/photo-uploads
     restart: always
     depends_on:
       - db
