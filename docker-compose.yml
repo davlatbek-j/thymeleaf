@@ -10,6 +10,9 @@ services:
       - SPRING_DATASOURCE_PASSWORD=-098
     ports:
       - "1984:1984"
+    volumes:
+      - $(pwd)/src/main/resources/photo-uploads:/photo-uploads
+    restart: always
     depends_on:
       - db
 

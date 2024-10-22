@@ -7,6 +7,8 @@ VOLUME /tmp
 # run in path 'thymeleaf'
 RUN mkdir /thymeleaf
 
+WORKDIR /thymeleaf
+
 # Copy the project’s jar to the container
 COPY target/thymeleaf-0.0.1-SNAPSHOT.jar app.jar
 
