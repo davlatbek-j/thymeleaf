@@ -12,6 +12,7 @@ services:
       - "1984:1984"
     volumes:
       - ./src/main/resources/photo-uploads:/photo-uploads
+    restart: unless-stopped
     depends_on:
       - db
 
@@ -24,6 +25,7 @@ services:
       POSTGRES_PASSWORD: -098
     ports:
       - "5433:5432"
+    restart: unless-stopped
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
