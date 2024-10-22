@@ -24,6 +24,7 @@ public class DataLoader implements CommandLineRunner
     private void createPhotoPath()
     {
         File directory = new File(uploadPath);
+        log.info("directory.exists() = " + directory.exists());
         if (!directory.exists())
         {
             if (directory.mkdirs())
