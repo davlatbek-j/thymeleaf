@@ -13,21 +13,10 @@ services:
     volumes:
       - ./src/main/resources/photo-uploads:/photo-uploads
     restart: always
-    depends_on:
-      - db
+    networks:
+      - global-network
 
-  db:
-    image: postgres:15
-    container_name: postgres_db
-    environment:
-      POSTGRES_DB: thymeleaf
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: -098
-    ports:
-      - "5433:5432"
-    restart: unless-stopped
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
 
-volumes:
-  postgres_data:
+networks:
+  global-network:
+    external: true
