@@ -21,7 +21,7 @@ services:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: -098
-      PGPORT: 5433
+      PGPORT: 5432
     expose:
       - 5432
 #    ports:
