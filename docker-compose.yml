@@ -23,9 +23,9 @@ services:
       POSTGRES_PASSWORD: -098
       PGPORT: 5433
     expose:
-      - 5433
+      - 5432
 #    ports:
-#      - ":5433"
+#      - "5433:5433"
     restart: unless-stopped
     volumes:
       - postgres_data:/var/lib/postgresql/data
