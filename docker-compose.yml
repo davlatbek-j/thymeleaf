@@ -3,29 +3,28 @@ services:
   app:
     build: .
     image: thymeleaf-img:latest
-    container_name: thymeleaf_cont
+    container_name: thymeleaf-cont
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://psql_db_thymeleaf_cont:5432/thymeleaf
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_db:5432/thymeleaf
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=-098
     ports:
       - "1984:1984"
     volumes:
       - ./src/main/resources/photo-uploads:/photo-uploads
-    restart: unless-stopped
+    restart: always
+    depends_on:
+      - db
 
   db:
     image: postgres:14
-    container_name: psql_db_thymeleaf_cont
+    container_name: postgres_db
     environment:
-      POSTGRES_DB: postgres
+      POSTGRES_DB: thymeleaf
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: -098
-      PGPORT: 5432
-    expose:
-      - 5432
-#    ports:
-#      - "5433:5433"
+    ports:
+      - "5433:5432"
     restart: unless-stopped
     volumes:
       - postgres_data:/var/lib/postgresql/data
