@@ -5,7 +5,7 @@ services:
     image: thymeleaf-img:latest
     container_name: thymeleaf-cont
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_db:5432/thymeleaf
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://thymeleaf_pg_db:5432/thymeleaf
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=-098
     ports:
@@ -18,7 +18,7 @@ services:
 
   db:
     image: postgres:14
-    container_name: postgres_db
+    container_name: thymeleaf_pg_db
     environment:
       POSTGRES_DB: thymeleaf
       POSTGRES_USER: postgres
@@ -32,9 +32,3 @@ services:
 
 volumes:
   postgres_data:
-
-#    knk
-#  PostgreSQL Database directory appears to contain a database; Skipping initialization
-#
-#2024-11-06 05:47:37.463 UTC [1] FATAL:  database files are incompatible with server
-#2024-11-06 05:47:37.463 UTC [1] DETAIL:  The data directory was initialized by PostgreSQL version 15, which is not compatible with this version 14.13 (Debian 14.13-1.pgdg120+1).
