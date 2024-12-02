@@ -2,8 +2,8 @@ version: '3.8'
 services:
   app:
     build: .
-    image: thymeleaf-img:latest
-    container_name: thymeleaf-cont
+    image: thymeleaf-img-app
+    container_name: thymeleaf-container
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://thymeleaf_pg_db:5432/thymeleaf
       - SPRING_DATASOURCE_USERNAME=postgres
