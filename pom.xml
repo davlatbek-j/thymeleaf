@@ -10,7 +10,7 @@
     </parent>
     <groupId>uz.blacknet</groupId>
     <artifactId>thymeleaf</artifactId>
-    <version></version>
+    <version>1</version>
     <name>thymeleaf</name>
     <description>thymeleaf</description>
     <url/>
