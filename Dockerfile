@@ -5,9 +5,9 @@ FROM openjdk:17-jdk-slim
 VOLUME /tmp
 
 # run in path 'thymeleaf'
-RUN mkdir /thymeleaf
+RUN mkdir /thymeleaf && mkdir "photo-uploads"
 
-WORKDIR /thymeleaf
+#WORKDIR /thymeleaf
 
 # Copy the project’s jar to the container
 COPY target/thymeleaf-1.jar app.jar
