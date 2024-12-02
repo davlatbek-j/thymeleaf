@@ -16,4 +16,4 @@ COPY target/thymeleaf-1.jar /thymeleaf/app.jar
 EXPOSE 1984
 
 # Run the jar file
-ENTRYPOINT ["java", "-jar", "/app.jar", "--spring.profiles.active=docker"]
+ENTRYPOINT ["java", "-jar", "thymeleaf/app.jar", "--spring.profiles.active=docker"]
