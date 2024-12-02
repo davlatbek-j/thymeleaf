@@ -10,10 +10,10 @@ RUN mkdir /thymeleaf
 WORKDIR /thymeleaf
 
 # Copy the project’s jar to the container
-COPY target/thymeleaf-1.jar thymeleaf/app.jar
+COPY target/thymeleaf-1.jar app.jar
 
 # Expose port
 EXPOSE 1984
 
 # Run the jar file
-ENTRYPOINT ["java", "-jar", "thymeleaf/app.jar", "--spring.profiles.active=docker"]
+ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=docker"]
