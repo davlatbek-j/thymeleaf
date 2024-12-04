@@ -5,7 +5,7 @@ FROM ubuntu:latest
 VOLUME /tmp
 
 # run in path 'thymeleaf'
-RUN mkdir /thymeleaf && mkdir photo-uploads
+RUN mkdir /thymeleaf && mkdir photo-uploads && apt install openjdk-17-jdk openjdk-17-jre
 
 #WORKDIR /thymeleaf
 
