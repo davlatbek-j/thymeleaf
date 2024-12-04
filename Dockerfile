@@ -1,11 +1,11 @@
 # Start with a base image containing Java runtime
-FROM openjdk:17-jdk-slim
+FROM ubuntu:latest
 
 # Add a volume pointing to /tmp
 VOLUME /tmp
 
 # run in path 'thymeleaf'
-RUN mkdir /thymeleaf && mkdir "photo-uploads"
+RUN mkdir /thymeleaf && mkdir photo-uploads
 
 #WORKDIR /thymeleaf
 
