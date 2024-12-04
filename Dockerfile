@@ -1,11 +1,11 @@
 # Start with a base image containing Java runtime
-FROM ubuntu:latest
+FROM openjdk:17-jdk-slim
 
 # Add a volume pointing to /tmp
 VOLUME /tmp
 
 # run in path 'thymeleaf'
-RUN mkdir /thymeleaf && mkdir photo-uploads && apt install openjdk-17-jdk openjdk-17-jre
+RUN mkdir /thymeleaf && mkdir photo-uploads
 
 #WORKDIR /thymeleaf
 
