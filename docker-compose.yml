@@ -4,6 +4,10 @@ services:
     build: .
     image: thymeleaf-img
     container_name: thymeleaf-cont
+    environment:
+      POSTGRES_DB: thymeleaf
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: -098
     ports:
       - "1984:1984"
     volumes:
