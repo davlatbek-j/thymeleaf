@@ -5,9 +5,9 @@ services:
     image: thymeleaf-img
     container_name: thymeleaf-cont
     environment:
-      POSTGRES_DB: thymeleaf
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: -098
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://thymeleaf_pg_db:5432/thymeleaf
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=-098
     ports:
       - "1984:1984"
     volumes:
