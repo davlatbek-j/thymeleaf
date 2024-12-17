@@ -11,8 +11,8 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
-@Component
-@Order(1)
+//@Component
+//@Order(1)
 public class APIKeyFilter extends OncePerRequestFilter
 {
     @Value("${api.key}")
