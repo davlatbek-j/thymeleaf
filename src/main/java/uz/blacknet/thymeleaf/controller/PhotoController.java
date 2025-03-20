@@ -14,9 +14,9 @@ import uz.blacknet.thymeleaf.service.PhotoService;
 
 import java.util.List;
 
-@RestController
+//@RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/photo")
+//@RequestMapping("/api/photo")
 public class PhotoController
 {
 

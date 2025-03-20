@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 
-@RestController
-@RequestMapping("/api")
+//@RestController
+//@RequestMapping("/api")
 public class AuthController
 {
     @PostMapping("/login")

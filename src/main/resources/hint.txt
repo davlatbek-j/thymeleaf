@@ -1,0 +1,34 @@
+
+-symlinc:
+sudo ln -s /etc/nginx/sites-available/tuit.blacknet.uz /etc/nginx/sites-enabled/
+
+-revoke:
+sudo certbot revoke --cert-path /etc/letsencrypt/live/tuit.blacknet.uz/fullchain.pem
+sudo rm -rf /etc/letsencrypt/live/tuit.blacknet.uz
+sudo rm -rf /etc/letsencrypt/archive/tuit.blacknet.uz
+sudo rm -rf /etc/letsencrypt/renewal/tuit.blacknet.uz.conf
+
+
+
+-config:
+server {
+    listen 80;
+    server_name tuit.blacknet.uz;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name tuit.blacknet.uz;
+
+    ssl_certificate /etc/letsencrypt/live/tuit.blacknet.uz/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/tuit.blacknet.uz/privkey.pem;
+
+    location / {
+        proxy_pass http://127.0.0.1:1984;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
