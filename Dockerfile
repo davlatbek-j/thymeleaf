@@ -5,9 +5,9 @@ FROM eclipse-temurin:17-jdk-jammy
 VOLUME /tmp
 
 # run in path 'thymeleaf'
-RUN mkdir /thymeleaf && mkdir photo-uploads
+RUN mkdir ./photo-uploads
 
-#WORKDIR /thymeleaf
+WORKDIR /thymeleaf
 
 # Copy the project’s jar to the container
 COPY target/thymeleaf-1.jar app.jar
