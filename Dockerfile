@@ -31,5 +31,5 @@ COPY --from=builder /build/target/*.jar app.jar
 
 EXPOSE 1984
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
-#ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=docker"]
+#ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=docker"]
