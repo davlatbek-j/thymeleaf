@@ -11,7 +11,7 @@ services:
     ports:
       - "1984:1984"
     volumes:
-      - ./photos:/thyemleaf/photo-uploads
+      - ./photos:/thymeleaf/photo-uploads
     depends_on:
       - db
 
