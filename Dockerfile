@@ -24,7 +24,7 @@ FROM eclipse-temurin:17-jre-jammy
 
 WORKDIR /thymeleaf
 
-RUN mkdir photo-uploads-dockerfile
+#RUN mkdir photo-uploads
 
 # builder stage dan jar ni olib kelamiz
 COPY --from=builder /build/target/*.jar app.jar

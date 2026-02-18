@@ -11,7 +11,7 @@ services:
     ports:
       - "1984:1984"
     volumes:
-      - ./photos:/photo-uploads-docker-compose
+      - ./photos:photo-uploads
     depends_on:
       - db
 
@@ -27,3 +27,4 @@ services:
 
 volumes:
   postgres_data:
+    name: thymeleaf_postgres_volume
