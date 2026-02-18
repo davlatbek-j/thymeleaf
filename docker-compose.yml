@@ -11,7 +11,7 @@ services:
     ports:
       - "1984:1984"
     volumes:
-      - ./photos:/photo-uploads
+      - ./photos:/photo-uploads-docker-compose
     depends_on:
       - db
 
